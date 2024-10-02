@@ -1,33 +1,33 @@
 document.addEventListener("DOMContentLoaded", () => {
     const loginButton = document.getElementById("loginButton");
     const loginForm = document.getElementById("loginForm");
+    const userListButton = document.getElementById("userListButton"); // Button to show if user is admin
+    const loginFormElement = document.getElementById("loginFormElement");
+    const loginMessage = document.getElementById("loginMessage");
 
+    // Handle login form visibility toggle
     if (loginButton && loginForm) {
         loginButton.addEventListener("click", () => {
-            // Hvis formen allerede vises ved content load, sættes den til 'none' på 0,4s.
             if (loginForm.classList.contains("show")) {
                 loginForm.classList.remove("show");
                 setTimeout(() => {
                     loginForm.style.display = "none";
-                }, 400); // Match the CSS transition duration
+                }, 400);
             } else {
-                // Eller vises den når der klikkes på login knappen.
-                loginForm.style.display = "block"; // Make it visible first
+                loginForm.style.display = "block";
                 setTimeout(() => {
-                    loginForm.classList.add("show"); // Transition
-                }, 10); // Smooth transition
+                    loginForm.classList.add("show");
+                }, 10);
             }
         });
     }
 
-    const loginFormElement = document.getElementById("loginFormElement");
-    const loginMessage = document.getElementById("loginMessage");
-
+    // Handle form submission for login
     if (loginFormElement) {
         loginFormElement.addEventListener("submit", async (event) => {
             event.preventDefault();
 
-            // fang værdierne
+            // Capture username and password
             const username = document.getElementById("username").value;
             const password = document.getElementById("password").value;
 
@@ -35,16 +35,42 @@ document.addEventListener("DOMContentLoaded", () => {
                 const response = await fetch("/api/users/login", {
                     method: "POST",
                     headers: {
-                        'Content-Type':'application/json' // Vis at vi gerne vil sende json. Se controller api 'loginData' parameter.
+                        'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({username,password}) // Her sender vi json dataen.
-                })
+                    body: JSON.stringify({username, password})
+                });
 
-                const result = await response.text();// Venter på svar fra api
+                const result = await response.text(); // Wait for the response from API
                 loginMessage.innerText = result;
+
+                // After a successful login, check if the user is an admin
+                if (response.ok) {
+                    await checkIsAdmin(); // Immediately check admin status
+                }
+
             } catch (error) {
                 console.log("Error", error);
             }
-        })
+        });
+    }
+
+    // Function to check if the logged-in user is an admin
+    async function checkIsAdmin() {
+        try {
+            const response = await fetch("/api/users/isAdmin");
+
+            if (response.ok) {
+                const isAdmin = await response.json(); // Assuming the response is a boolean value
+
+                // If the user is an admin, show the user list button
+                if (isAdmin) {
+                    userListButton.classList.add("show");
+                }
+            } else {
+                console.log("Failed to check admin status");
+            }
+        } catch (error) {
+            console.error("Error fetching admin status: ", error);
+        }
     }
 });

@@ -1,0 +1,43 @@
+#userListButton {
+    display: none;
+    margin-top: 4px;
+}
+#userListButton.show {
+    display: block;
+}
+
+/* Style for the user list section */
+#userListSection {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.4s, transform 0.4s;
+}
+
+#userListSection.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+
+#userListSection {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#userListSection h3 {
+    font-size: 1.5em;
+    color: #333;
+}
+
+#userListSection ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#userListSection ul li {
+    padding: 5px 0;
+    font-size: 1.2em;
+}
