@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="/css/headerFooter.css">
   <link rel="stylesheet" href="/css/loginForm.css">
   <link rel="stylesheet" href="/css/userList.css">
+  <link rel="stylesheet" href="/css/createUser.css">
 </head>
 
 <body>
@@ -17,6 +18,7 @@
     <ul>
       <li><button id="userListButton">Users</button></li>
       <li><button id="loginButton">Login</button></li>
+      <li><button id="createUserButton">Create User</button></li>
       <li><a href="#home">Home</a></li>
       <li><a href="#movies">Movies</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -50,6 +52,21 @@
 
   <div id="loginMessage"></div> <!-- Placeholder for success eller fejl-message -->
 </div>
+
+<div id="createUserForm">
+  <h2>Create User</h2>
+  <form id="createUserFormElement">
+    <label for="newUsername">Username:</label>
+    <input type="text" id="newUsername" required>
+
+    <label for="newPassword">Password:</label>
+    <input type="password" id="newPassword" required>
+
+    <button type="submit">Create</button>
+  </form>
+  <div id="createUserMessage"></div>
+</div>
+
 
 <!-- Footer -->
 <footer>

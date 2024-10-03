@@ -65,9 +65,9 @@ public class UserController {
 
     // Create
     @PostMapping("/create")
-    public ResponseEntity<?> createUser(@RequestParam String username, @RequestParam String password) {
+    public ResponseEntity<?> createUser(@RequestBody User user) {
         try {
-            User newUser = userService.createUser(username, password);
+            User newUser = userService.createUser(user.getUsername(), user.getPassword());
             return ResponseEntity.ok(newUser);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("Error creating user: " + e.getMessage());
