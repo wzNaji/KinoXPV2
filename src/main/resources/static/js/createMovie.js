@@ -4,5 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     createMovieButton.addEventListener("click", () => {
         createMovieForm.classList.toggle("show");
+
     });
 });
