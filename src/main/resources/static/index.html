@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="/css/loginForm.css">
   <link rel="stylesheet" href="/css/userList.css">
   <link rel="stylesheet" href="/css/createUser.css">
+  <link rel="stylesheet" href="/css/createMovie.css">
 </head>
 
 <body>
@@ -16,9 +17,10 @@
   <nav>
     <div class="logo">KinoXP</div>
     <ul>
+      <li><button id="createMovieButton">Add Movie</button></li>
       <li><button id="userListButton">Users</button></li>
-      <li><button id="loginButton">Login</button></li>
       <li><button id="createUserButton">Create User</button></li>
+      <li><button id="loginButton">Login</button></li>
       <li><a href="#home">Home</a></li>
       <li><a href="#movies">Movies</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -66,6 +68,24 @@
   </form>
   <div id="createUserMessage"></div>
 </div>
+
+<div id="createMovieForm">
+  <h2>Create Movie</h2>
+  <form id="createMovieFormElement">
+    <label for="movieTitle">Title:</label>
+    <input type="text" id="movieTitle" required>
+
+    <label for="movieGenre">Genre:</label>
+    <input type="text" id="movieGenre" required>
+
+    <label for="movieDuration">Duration (in minutes):</label>
+    <input type="number" id="movieDuration" required>
+
+    <button type="submit">Create</button>
+  </form>
+  <div id="createMovieMessage"></div> <!-- Placeholder for success or error messages -->
+</div>
+
 
 
 <!-- Footer -->

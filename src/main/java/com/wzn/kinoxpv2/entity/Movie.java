@@ -32,7 +32,7 @@ public class Movie {
 
 
     @ManyToOne
-    @JoinColumn(name = "cinema_hall_id") // This establishes the foreign key column.
+    @JoinColumn(name = "cinema_hall_id") // foreign key column.
     private CinemaHall cinemaHall;
 
     @OneToMany(mappedBy = "movie", fetch = FetchType.LAZY, cascade = CascadeType.ALL)

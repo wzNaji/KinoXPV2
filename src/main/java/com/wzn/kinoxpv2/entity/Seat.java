@@ -14,14 +14,17 @@ public class Seat {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    boolean isReserved;
+    @Column(nullable = false)
+    private boolean isReserved;
 
+    @Column(nullable = false)
     private int rowNumber;
 
+    @Column(nullable = false)
     private int seatNumber;
 
-    @ManyToOne
-    @JoinColumn(name = "cinema_hall_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cinema_hall_id", nullable = false)
     private CinemaHall cinemaHall;
 
 }
