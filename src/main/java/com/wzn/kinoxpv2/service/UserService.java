@@ -7,9 +7,9 @@ import java.util.List;
 public interface UserService {
 
     User findUserById(Long id);
-    User createUser(User user);
+    User createUser(String username,String password);
     void editUser(Long userId, User userDetails);
-    void deleteUser(Long userId);
+    boolean deleteUser(Long userId);
     List<User> findAllUsers();
     boolean checkLogin(String username, String password);
     User findUserByUsername(String username);

@@ -1,0 +1,102 @@
+#userListButton {
+    display: none;
+    margin-top: 4px;
+}
+#userListButton.show {
+    display: block;
+}
+
+/* Style for the user list section */
+#userListSection {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.4s, transform 0.4s;
+}
+
+#userListSection.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+
+#userListSection {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#userListSection h3 {
+    font-size: 1.5em;
+    color: #333;
+}
+
+#userListSection ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#userListSection ul li {
+    padding: 5px 0;
+    font-size: 1.2em;
+}
+.user-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.user-item:last-child {
+    border-bottom: none;
+}
+
+
+.user-details {
+    flex-grow: 1; /* Allows the username and role section to take up available space */
+}
+
+.user-actions {
+    /* No specific size settings needed; this container will shrink-wrap its contents */
+}
+
+/* Edit og Delete knap */
+.userEditButton, .userDeleteButton {
+    padding: 6px 12px; /* Adequate padding for clickable area */
+    margin-left: 8px; /* Space between buttons and user text */
+    font-size: 14px; /* Readable font size */
+    line-height: 1.5;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid transparent; /* No visible border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+/* Specific styles for the Edit button */
+.userEditButton {
+    color: white; /* White text */
+    background-color: #007bff; /* Bootstrap blue */
+    border-color: #007bff;
+}
+
+.userEditButton:hover {
+    background-color: #0056b3; /* A darker shade of blue on hover */
+    border-color: #004885;
+}
+
+/* Specific styles for the Delete button */
+.userDeleteButton {
+    color: white; /* White text */
+    background-color: #dc3545; /* Bootstrap red */
+    border-color: #dc3545;
+}
+
+.userDeleteButton:hover {
+    background-color: #c82333; /* A darker shade of red on hover */
+    border-color: #bd2130;
+}
+

@@ -1,10 +1,16 @@
 package com.wzn.kinoxpv2.controller;
 
+import com.wzn.kinoxpv2.config.AppConfig;
 import com.wzn.kinoxpv2.entity.User;
+import com.wzn.kinoxpv2.enums.Role;
 import com.wzn.kinoxpv2.service.UserService;
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.servlet.http.HttpSession;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -16,6 +22,7 @@ public class UserController {
         this.userService = userService;
     }
 
+    // login
     @PostMapping("/login")
     public String isAuthenticated(@RequestBody Map<String, String> loginData,
                                   HttpSession session) {
@@ -40,5 +47,54 @@ public class UserController {
         session.invalidate(); // Gør session unauthorized
         return "You have been logged out.";
     }
+
+    @GetMapping("/userList")
+    public ResponseEntity<List<User>> getAllUsers(HttpSession session) {
+
+        if (AppConfig.isAdmin(session)) {
+            List<User> userList = userService.findAllUsers();
+            return new ResponseEntity<>(userList, HttpStatus.OK);
+
+        } else return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+    }
+
+    @GetMapping("/isAdmin")
+    public ResponseEntity<Boolean> isAdmin(HttpSession session) {
+        boolean isAdmin = AppConfig.isAdmin(session);
+        return ResponseEntity.ok(isAdmin);  // Return 200 OK med boolean value
+    }
+
+    // Create
+    @PostMapping("/create")
+    public ResponseEntity<?> createUser(@RequestBody User user) {
+        try {
+            User newUser = userService.createUser(user.getUsername(), user.getPassword());
+            return ResponseEntity.ok(newUser);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Error creating user: " + e.getMessage());
+        }
+    }
+
+    // Delete
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteUser(@PathVariable Long id) {
+        try {
+            boolean isDeleted = userService.deleteUser(id);
+            if (isDeleted) {
+                return ResponseEntity.ok().body("User successfully deleted");
+            } else {
+                return ResponseEntity.badRequest().body("User not found");
+            }
+        } catch (IllegalArgumentException | EntityNotFoundException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().body("Internal Server Error");
+        }
+    }
+
+
+
+
+
 
 }
