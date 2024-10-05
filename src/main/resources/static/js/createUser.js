@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const createUserForm = document.getElementById("createUserForm");
     const createUserFormElement = document.getElementById("createUserFormElement");
     let createUserMessage = document.getElementById("createUserMessage")
+    const userListButton = document.getElementById("userListButton");
 
     createUserButton.addEventListener("click", () => {
         createUserForm.classList.toggle("show");
@@ -26,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (response.ok) {
             createUserMessage.innerText = "User successfully created: " + username.value;
+            userListButton.click();
             username.value = "";
             password.value = "";
         } else

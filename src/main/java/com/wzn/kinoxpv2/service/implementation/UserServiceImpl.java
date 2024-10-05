@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User createUser(String username,String password) {
         User user = new User(username,password);
-        user.setUserRole(Role.WORKER);
+        user.setUserRole(Role.ADMIN);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userRepository.save(user);
     }
@@ -72,18 +72,20 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     @Override
-    public void deleteUser(Long userId) {
+    public boolean deleteUser(Long userId) {
         if (userId == null) {
             throw new IllegalArgumentException("Bruger ID blev ikke fundet");
         }
 
         Optional<User> optionalUserToDelete = userRepository.findById(userId);
-
         if (optionalUserToDelete.isPresent()) {
             userRepository.deleteById(userId);
+            return true;
+        } else {
+            throw new EntityNotFoundException("Bruger blev ikke fundet");
         }
-        else throw new RuntimeException("Bruger blev ikke fundet");
     }
+
 
     @Override
     public List<User> findAllUsers() {

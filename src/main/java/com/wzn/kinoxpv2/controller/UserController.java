@@ -4,6 +4,7 @@ import com.wzn.kinoxpv2.config.AppConfig;
 import com.wzn.kinoxpv2.entity.User;
 import com.wzn.kinoxpv2.enums.Role;
 import com.wzn.kinoxpv2.service.UserService;
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -73,6 +74,26 @@ public class UserController {
             return ResponseEntity.badRequest().body("Error creating user: " + e.getMessage());
         }
     }
+
+    // Delete
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteUser(@PathVariable Long id) {
+        try {
+            boolean isDeleted = userService.deleteUser(id);
+            if (isDeleted) {
+                return ResponseEntity.ok().body("User successfully deleted");
+            } else {
+                return ResponseEntity.badRequest().body("User not found");
+            }
+        } catch (IllegalArgumentException | EntityNotFoundException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().body("Internal Server Error");
+        }
+    }
+
+
+
 
 
 
