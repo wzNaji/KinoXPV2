@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="/css/userList.css">
   <link rel="stylesheet" href="/css/createUser.css">
   <link rel="stylesheet" href="/css/createMovie.css">
+  <link rel="stylesheet" href="/css/movieList.css">
+
 </head>
 
 <body>
@@ -22,13 +24,31 @@
       <li><button id="createUserButton">Create User</button></li>
       <li><button id="loginButton">Login</button></li>
       <li><a href="#home">Home</a></li>
-      <li><a href="#movies">Movies</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="#about">About Us</a></li>
     </ul>
   </nav>
 </header>
+<section id="movieListSection">
+  <h3>Available Movies</h3>
 
+  <div id="filter-section">
+
+    <input type="text" id="search-bar" placeholder="Search for movies...">
+    <select id="sort-options">
+      <option value="title-asc">Title A-Z</option>
+      <option value="title-desc">Title Z-A</option>
+      <option value="age-asc">Age Limit (Low to High)</option>
+      <option value="age-desc">Age Limit (High to Low)</option>
+    </select>
+    <select id="genre-filter">
+      <option value="all">All Genres</option>
+    </select>
+
+  </div>
+
+  <div id="movies-container"></div>
+</section>
 <!-- Main content placeholder -->
 <div id="content" style="padding: 20px;">
   <section id="userListSection">
@@ -37,36 +57,37 @@
       <!-- List of users -->
     </ul>
   </section>
-</div>
 
-<!-- Gemmer formen indtil der trykkes. Se css/loginForm + script -->
-<div id="loginForm">
-  <h2>Login</h2>
-  <form id="loginFormElement">
-    <label for="username">Username</label>
-    <input type="text" id="username" required>
+  <!-- Gemmer formen indtil der trykkes. Se css/loginForm + script -->
+  <div id="loginForm">
+    <h2>Login</h2>
+    <form id="loginFormElement">
+      <label for="username">Username</label>
+      <input type="text" id="username" required>
 
-    <label for="password">Password</label>
-    <input type="password" id="password" required>
+      <label for="password">Password</label>
+      <input type="password" id="password" required>
 
-    <button type="submit">Submit</button>
-  </form>
+      <button type="submit">Submit</button>
+    </form>
 
-  <div id="loginMessage"></div> <!-- Placeholder for success eller fejl-message -->
-</div>
+    <div id="loginMessage"></div> <!-- Placeholder for success eller fejl-message -->
+  </div>
 
-<div id="createUserForm">
-  <h2>Create User</h2>
-  <form id="createUserFormElement">
-    <label for="newUsername">Username:</label>
-    <input type="text" id="newUsername" required>
+  <div id="createUserForm">
+    <h2>Create User</h2>
+    <form id="createUserFormElement">
+      <label for="newUsername">Username:</label>
+      <input type="text" id="newUsername" required>
 
-    <label for="newPassword">Password:</label>
-    <input type="password" id="newPassword" required>
+      <label for="newPassword">Password:</label>
+      <input type="password" id="newPassword" required>
 
-    <button type="submit">Create</button>
-  </form>
-  <div id="createUserMessage"></div>
+      <button type="submit">Create</button>
+    </form>
+    <div id="createUserMessage"></div>
+  </div>
+
 </div>
 
 <div id="createMovieForm">
@@ -81,10 +102,15 @@
     <label for="movieDuration">Duration (in minutes):</label>
     <input type="number" id="movieDuration" required>
 
+    <label for="ageLimit">Age Limit</label>
+    <input type="number" id="ageLimit" required>
+
     <button type="submit">Create</button>
   </form>
   <div id="createMovieMessage"></div> <!-- Placeholder for success or error messages -->
 </div>
+
+
 
 
 

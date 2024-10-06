@@ -37,4 +37,11 @@ public class Movie {
 
     @OneToMany(mappedBy = "movie", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<TimeTable> timeTables; // List of showtimes for this movie
+
+    public Movie (String title, String genre, int duration, int ageLimit) {
+        this.title = title;
+        this.genre = genre;
+        this.duration = duration;
+        this.ageLimit = ageLimit;
+    }
 }

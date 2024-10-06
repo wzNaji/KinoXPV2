@@ -41,6 +41,11 @@ public class MovieServiceImpl implements MovieService {
     @Override
     @Transactional(readOnly = true)
     public List<Movie> findAllMovies() {
-        return movieRepository.findAll();
+        List<Movie> allMovies = movieRepository.findAll();
+
+        if (allMovies.isEmpty()) {
+            throw new IllegalArgumentException("Listen af film blev ikke fundet");
+        }
+        return allMovies;
     }
 }
