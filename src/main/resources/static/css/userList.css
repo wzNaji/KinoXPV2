@@ -62,8 +62,8 @@
     /* No specific size settings needed; this container will shrink-wrap its contents */
 }
 
-/* Edit og Delete knap */
-.userEditButton, .userDeleteButton {
+/* Delete knap */
+.userDeleteButton {
     padding: 6px 12px; /* Adequate padding for clickable area */
     margin-left: 8px; /* Space between buttons and user text */
     font-size: 14px; /* Readable font size */
@@ -74,18 +74,6 @@
     border-radius: 4px; /* Rounded corners */
     cursor: pointer; /* Pointer cursor on hover */
     transition: background-color 0.3s; /* Smooth transition for hover effect */
-}
-
-/* Specific styles for the Edit button */
-.userEditButton {
-    color: white; /* White text */
-    background-color: #007bff; /* Bootstrap blue */
-    border-color: #007bff;
-}
-
-.userEditButton:hover {
-    background-color: #0056b3; /* A darker shade of blue on hover */
-    border-color: #004885;
 }
 
 /* Specific styles for the Delete button */

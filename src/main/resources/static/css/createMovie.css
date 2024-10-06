@@ -1,0 +1,12 @@
+#createMovieButton {
+    display: none;
+}
+#createMovieButton.show {
+    display: block;
+}
+#createMovieForm {
+    display: none;
+}
+#createMovieForm.show {
+    display: block;
+}

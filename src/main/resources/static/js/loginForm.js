@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const loginForm = document.getElementById("loginForm");
     const userListButton = document.getElementById("userListButton");
     const createUserButton = document.getElementById("createUserButton");
+    const createMovieButton = document.getElementById("createMovieButton");
     const loginFormElement = document.getElementById("loginFormElement");
     const loginMessage = document.getElementById("loginMessage");
 
@@ -72,6 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (isAdmin) {
                     userListButton.classList.add("show");
                     createUserButton.classList.add("show");
+                    createMovieButton.classList.add("show");
                 }
             } else {
                 console.error("Failed to check admin status");
