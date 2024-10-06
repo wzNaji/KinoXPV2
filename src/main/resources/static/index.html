@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="/css/createUser.css">
   <link rel="stylesheet" href="/css/createMovie.css">
   <link rel="stylesheet" href="/css/movieList.css">
-
 </head>
 
 <body>
@@ -31,9 +30,7 @@
 </header>
 <section id="movieListSection">
   <h3>Available Movies</h3>
-
   <div id="filter-section">
-
     <input type="text" id="search-bar" placeholder="Search for movies...">
     <select id="sort-options">
       <option value="title-asc">Title A-Z</option>
@@ -44,76 +41,58 @@
     <select id="genre-filter">
       <option value="all">All Genres</option>
     </select>
-
   </div>
-
   <div id="movies-container"></div>
+  <!-- All movies get dynamically generated here -->
 </section>
-<!-- Main content placeholder -->
-<div id="content" style="padding: 20px;">
+<div id="userListContent">
   <section id="userListSection">
     <h3>User List</h3>
     <ul>
       <!-- List of users -->
     </ul>
   </section>
-
-  <!-- Gemmer formen indtil der trykkes. Se css/loginForm + script -->
-  <div id="loginForm">
-    <h2>Login</h2>
-    <form id="loginFormElement">
-      <label for="username">Username</label>
-      <input type="text" id="username" required>
-
-      <label for="password">Password</label>
-      <input type="password" id="password" required>
-
-      <button type="submit">Submit</button>
-    </form>
-
-    <div id="loginMessage"></div> <!-- Placeholder for success eller fejl-message -->
-  </div>
-
-  <div id="createUserForm">
-    <h2>Create User</h2>
-    <form id="createUserFormElement">
-      <label for="newUsername">Username:</label>
-      <input type="text" id="newUsername" required>
-
-      <label for="newPassword">Password:</label>
-      <input type="password" id="newPassword" required>
-
-      <button type="submit">Create</button>
-    </form>
-    <div id="createUserMessage"></div>
-  </div>
-
 </div>
-
+<!-- Login Form -->
+<div id="loginForm">
+  <h2>Login</h2>
+  <form id="loginFormElement">
+    <label for="username">Username</label>
+    <input type="text" id="username" required>
+    <label for="password">Password</label>
+    <input type="password" id="password" required>
+    <button type="submit">Submit</button>
+  </form>
+  <div id="loginMessage"></div> <!-- Placeholder for success or error messages -->
+</div>
+<!-- Create User Form -->
+<div id="createUserForm">
+  <h2>Create User</h2>
+  <form id="createUserFormElement">
+    <label for="newUsername">Username:</label>
+    <input type="text" id="newUsername" required>
+    <label for="newPassword">Password:</label>
+    <input type="password" id="newPassword" required>
+    <button type="submit">Create</button>
+  </form>
+  <div id="createUserMessage"></div>
+</div>
+<!-- Create Movie Form -->
 <div id="createMovieForm">
   <h2>Create Movie</h2>
   <form id="createMovieFormElement">
     <label for="movieTitle">Title:</label>
     <input type="text" id="movieTitle" required>
-
     <label for="movieGenre">Genre:</label>
     <input type="text" id="movieGenre" required>
-
     <label for="movieDuration">Duration (in minutes):</label>
     <input type="number" id="movieDuration" required>
-
     <label for="ageLimit">Age Limit</label>
     <input type="number" id="ageLimit" required>
-
     <button type="submit">Create</button>
   </form>
   <div id="createMovieMessage"></div> <!-- Placeholder for success or error messages -->
 </div>
-
-
-
-
-
 <!-- Footer -->
 <footer>
   <p>&copy; 2024 KinoXP - All Rights Reserved</p>

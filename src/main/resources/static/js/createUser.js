@@ -25,13 +25,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 body: JSON.stringify({username: username.value, password: password.value})
             })
 
-        if (response.ok) {
-            createUserMessage.innerText = "User successfully created: " + username.value;
-            userListButton.click();
-            username.value = "";
-            password.value = "";
-        } else
-            createUserMessage.innerText = "Failed to create user: " + username.value;
+            if (response.ok) {
+                createUserMessage.innerText = "User successfully created: " + username.value;
+                userListButton.click();
+                username.value = "";
+                password.value = "";
+            } else
+                createUserMessage.innerText = "Failed to create user: " + username.value;
             username.value = "";
             password.value = "";
         } catch (error) {

@@ -1,4 +1,4 @@
-export let allMovies = [];  // Exporting this allows other modules to access the updated array if necessary
+let allMovies = [];
 
 // Fetch movies from API
 export function fetchMovies() {
@@ -56,4 +56,49 @@ function populateGenreDropdown(movies) {
         option.textContent = genre;
         genreDropdown.appendChild(option);
     });
+}
+
+// Function to sort movies based on selected criteria
+export function sortMovies() {
+    const sortOption = document.getElementById("sort-options").value;
+    let sortedMovies = [...allMovies];  // Create a copy of the array
+
+    switch (sortOption) {
+        case 'title-asc':
+            sortedMovies.sort((a, b) => a.title.localeCompare(b.title));
+            break;
+        case 'title-desc':
+            sortedMovies.sort((a, b) => b.title.localeCompare(a.title));
+            break;
+        case 'age-asc':
+            sortedMovies.sort((a, b) => a.ageLimit - b.ageLimit);
+            break;
+        case 'age-desc':
+            sortedMovies.sort((a, b) => b.ageLimit - a.ageLimit);
+            break;
+    }
+
+    displayMovies(sortedMovies);  // Display the sorted movies
+}
+
+// Function to filter movies by search input
+export function filterMovies() {
+    const searchTerm = document.getElementById("search-bar").value.toLowerCase();
+    const filteredMovies = allMovies.filter(movie =>
+        movie.title.toLowerCase().includes(searchTerm)
+    );
+
+    displayMovies(filteredMovies);  // Display the filtered movies
+}
+
+// Function to filter movies by selected genre
+export function filterMoviesByGenre() {
+    const selectedGenre = document.getElementById("genre-filter").value;
+
+    if (selectedGenre === "all") {
+        displayMovies(allMovies);
+    } else {
+        const filteredMovies = allMovies.filter(movie => movie.genre === selectedGenre);
+        displayMovies(filteredMovies);
+    }
 }

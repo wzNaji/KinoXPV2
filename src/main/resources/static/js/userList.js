@@ -1,8 +1,8 @@
 let userListButton;
-let mainContent;
+let userListContent;
 document.addEventListener("DOMContentLoaded", () => {
     userListButton = document.getElementById("userListButton");
-    mainContent = document.getElementById("content");
+    userListContent = document.getElementById("userListContent");
 
     userListButton.addEventListener("click", async () => {
         let userListSection = document.getElementById("userListSection");
@@ -41,14 +41,14 @@ async function fetchAndDisplayUsers() {
             });
 
             userListHtml += '</ul></section>';
-            mainContent.innerHTML = userListHtml;
+            userListContent.innerHTML = userListHtml;
 
             bindDeleteButtons();
         } else {
-            mainContent.innerHTML = `<p>Error fetching user list: ${response.status}</p>`;
+            userListContent.innerHTML = `<p>Error fetching user list: ${response.status}</p>`;
         }
     } catch (error) {
-        mainContent.innerHTML = `<p>Error occurred while fetching user list: ${error.message}</p>`;
+        userListContent.innerHTML = `<p>Error occurred while fetching user list: ${error.message}</p>`;
     }
 }
 
