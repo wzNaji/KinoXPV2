@@ -17,7 +17,7 @@ public class CinemaHall {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private int rows;
+    private int cinemaHallRows;
 
     @OneToMany(mappedBy = "cinemaHall" ,fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
     private List<Seat> seats;

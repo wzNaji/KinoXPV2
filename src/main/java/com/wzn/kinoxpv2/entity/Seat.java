@@ -18,7 +18,7 @@ public class Seat {
     private boolean isReserved;
 
     @Column(nullable = false)
-    private int rowNumber;
+    private int rowNum;
 
     @Column(nullable = false)
     private int seatNumber;
