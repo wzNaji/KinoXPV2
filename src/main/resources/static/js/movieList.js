@@ -1,4 +1,4 @@
-let allMovies = [];
+export let allMovies = [];
 
 // Fetch movies from API
 export function fetchMovies() {

@@ -2,6 +2,8 @@ import "./loginForm.js";
 import "./userList.js";
 import "./createUser.js";
 import "./createMovie.js";
+import "./deleteMovie.js";
+
 import { fetchMovies } from './movieList.js';
 import { sortMovies, filterMovies, filterMoviesByGenre } from './movieList.js';
 
