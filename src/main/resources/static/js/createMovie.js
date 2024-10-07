@@ -1,3 +1,4 @@
+import { fetchMovies } from './movieList.js';
 document.addEventListener("DOMContentLoaded", () => {
     const createMovieButton = document.getElementById("createMovieButton");
     const createMovieForm = document.getElementById("createMovieForm");
@@ -25,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         try {
-            const response = await fetch("/api/movies/movieList", {
+            const response = await fetch("/api/movies/create", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -42,6 +43,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.getElementById("movieGenre").value = "";
                 document.getElementById("movieDuration").value = "";
                 document.getElementById("ageLimit").value = "";
+                fetchMovies();
+
             } else {
                 createMovieMessage.innerText = "Failed to create movie: " + resultText;
             }
