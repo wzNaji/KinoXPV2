@@ -33,9 +33,12 @@ function displayMoviesForDeletion(movies) {
 
         // Make the event listener async to handle async deleteMovie
         deleteButton.addEventListener('click', async () => {
+            const confirmDeletion = confirm("Are you sure you want to delete: " + movie.title)
+            if (!confirmDeletion){
+                return
+            }
             try {
                 await deleteMovie(movie.id); // Await the deletion result
-                listItem.remove(); // Optionally remove the movie from the DOM after deletion
             } catch (error) {
                 console.error('Error deleting movie:', error);
             }
@@ -49,6 +52,7 @@ function displayMoviesForDeletion(movies) {
 
 // Function to delete a movie by ID
 async function deleteMovie(movieId) {
+
     try {
         const response = await fetch(`/api/movies/delete/${movieId}`, {
             method: 'DELETE',
@@ -60,10 +64,15 @@ async function deleteMovie(movieId) {
             return;
         }
 
-        const result = await response.text();
-        alert(result); // Display success message
-        fetchMovies() // refresh this mofo
-        
+        await fetchMovies() // refresh this mofo
+
+
+        let deleteMovieSearchTerm = document.getElementById("searchBar").value = ""
+        const filteredMovies = searchMoviesToDelete(deleteMovieSearchTerm);
+        displayMoviesForDeletion(filteredMovies); // Display filtered results with delete buttons
+//TODO
+
+
     } catch (error) {
         console.error('Error deleting movie:', error);
         alert('Error deleting movie');

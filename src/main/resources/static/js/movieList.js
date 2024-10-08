@@ -2,7 +2,7 @@ export let allMovies = [];
 
 // Fetch movies from API
 export function fetchMovies() {
-    fetch('/api/movies/movieList')
+    fetch(`/api/movies/movieList`)  // Cache-busting? minus/
         .then(response => {
             if (response.status === 204) {
                 return [];  // Handle no content
