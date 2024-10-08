@@ -1,0 +1,5 @@
+// Run this DML script after you've ran the DML script.
+// The password is 'password123'. What you see below is the encrypted version.
+
+INSERT INTO users (username, password, user_role)
+VALUES ('john', '$2a$10$NvaioRmhUn0tLNT2BXJcYuqrcmaufhTnfHookP.uo04Qm1MMhCJn.', 'ADMIN');

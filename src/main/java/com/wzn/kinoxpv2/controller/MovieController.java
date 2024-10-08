@@ -4,6 +4,7 @@ import com.wzn.kinoxpv2.config.AppConfig;
 import com.wzn.kinoxpv2.entity.Movie;
 import com.wzn.kinoxpv2.entity.User;
 import com.wzn.kinoxpv2.service.MovieService;
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -47,5 +48,20 @@ public class MovieController {
         }
     }
 
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteMovie(@PathVariable Long id) {
+        try {
+            boolean isDeleted = movieService.deleteMovie(id);
+            if (isDeleted) {
+                return ResponseEntity.ok().body("Movie successfully deleted");
+            } else {
+                return ResponseEntity.badRequest().body("Movie not found");
+            }
+        } catch (IllegalArgumentException | EntityNotFoundException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().body("Internal Server Error");
+        }
+    }
 
 }

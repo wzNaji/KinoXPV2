@@ -6,6 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const createMovieButton = document.getElementById("createMovieButton");
     const loginFormElement = document.getElementById("loginFormElement");
     const loginMessage = document.getElementById("loginMessage");
+    const deleteMovieButton = document.getElementById("deleteMovieButton");
+    const deleteMovieSearchContainer = document.getElementById("searchContainer");
+
 
     // Handle login form visibility toggle
     loginButton.addEventListener("click", () => {
@@ -74,6 +77,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     userListButton.classList.add("show");
                     createUserButton.classList.add("show");
                     createMovieButton.classList.add("show");
+                    deleteMovieButton.classList.add("show");
+
+                    deleteMovieButton.addEventListener("click", () => {
+
+                        deleteMovieSearchContainer.classList.toggle("show");
+                    });
                 }
             } else {
                 console.error("Failed to check admin status");

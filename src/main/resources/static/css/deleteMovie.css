@@ -1,0 +1,13 @@
+
+#searchContainer {
+    display: none;
+}
+#searchContainer.show {
+    display: block;
+}
+#deleteMovieButton {
+    display: none;
+}
+#deleteMovieButton.show {
+    display: block;
+}
