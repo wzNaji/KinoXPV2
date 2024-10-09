@@ -5,6 +5,27 @@ INSERT INTO users (username, password, user_role)
 VALUES ('john', '$2a$10$NvaioRmhUn0tLNT2BXJcYuqrcmaufhTnfHookP.uo04Qm1MMhCJn.', 'ADMIN');
 
 
+-- Movies
+-- Inserting four movies
+
+INSERT INTO Movie (id, age_limit, duration, genre, title, cinema_hall_id)
+VALUES
+(1, 12, 120, 'Action', 'The Fast Race', 1),
+(2, 18, 150, 'Thriller', 'The Haunted House', 1),
+(3, 16, 130, 'Fantasy', 'Dragon Kingdom', 2),
+(4, 10, 90, 'Animation', 'Adventures of Timmy', 2);
+
+-- time tables
+-- Inserting four time tables with cinema hall id and movie id references
+
+INSERT INTO TimeTable (id, start_time, cinema_hall_id, movie_id)
+VALUES
+(1, '2024-10-10 14:00:00', 1, 1),  -- Movie 1 in Cinema Hall 1
+(2, '2024-10-10 17:00:00', 1, 2),  -- Movie 2 in Cinema Hall 1
+(3, '2024-10-11 12:00:00', 2, 3),  -- Movie 3 in Cinema Hall 2
+(4, '2024-10-11 15:00:00', 2, 4);  -- Movie 4 in Cinema Hall 2
+
+
 -- Insert seats for the SMALL CinemaHall with id = 1 (20 rows, 12 seats per row)
 
 -- Row 1
