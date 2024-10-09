@@ -1,6 +1,7 @@
 package com.wzn.kinoxpv2.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -38,6 +39,7 @@ public class Movie {
     private CinemaHall cinemaHall;
 
     @OneToMany(mappedBy = "movie", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<TimeTable> timeTables; // List of showtimes for this movie
 
     public Movie (String title, String genre, int duration, int ageLimit) {

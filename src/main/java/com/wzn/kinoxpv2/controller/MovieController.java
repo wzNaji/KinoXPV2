@@ -1,6 +1,7 @@
 package com.wzn.kinoxpv2.controller;
 
 import com.wzn.kinoxpv2.entity.Movie;
+import com.wzn.kinoxpv2.entity.TimeTable;
 import com.wzn.kinoxpv2.service.MovieService;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.HttpStatus;

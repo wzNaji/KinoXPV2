@@ -19,6 +19,7 @@ public class TimeTable {
 
     @ManyToOne
     @JoinColumn(name = "movie_id", nullable = false)
+    @JsonBackReference
     private Movie movie;
 
     @ManyToOne
