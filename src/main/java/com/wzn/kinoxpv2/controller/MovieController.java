@@ -1,11 +1,8 @@
 package com.wzn.kinoxpv2.controller;
 
-import com.wzn.kinoxpv2.config.AppConfig;
 import com.wzn.kinoxpv2.entity.Movie;
-import com.wzn.kinoxpv2.entity.User;
 import com.wzn.kinoxpv2.service.MovieService;
 import jakarta.persistence.EntityNotFoundException;
-import jakarta.servlet.http.HttpSession;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -61,6 +58,20 @@ public class MovieController {
             return ResponseEntity.badRequest().body(e.getMessage());
         } catch (Exception e) {
             return ResponseEntity.internalServerError().body("Internal Server Error");
+        }
+    }
+
+    @GetMapping("/{movieId}")
+    public ResponseEntity<Movie> getMovieById(@PathVariable Long movieId) {
+        try {
+            Movie movie = movieService.findMovieById(movieId);
+            return ResponseEntity.ok(movie); // Return 200 OK with the movie
+        } catch (IllegalArgumentException ex) {
+            // Handle case where the movie is not found
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        } catch (Exception ex) {
+            // Handle generic exceptions
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
 

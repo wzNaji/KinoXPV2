@@ -1,5 +1,6 @@
 package com.wzn.kinoxpv2.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,6 +23,7 @@ public class TimeTable {
 
     @ManyToOne
     @JoinColumn(name = "cinema_hall_id", nullable = false)
+    @JsonBackReference
     private CinemaHall cinemaHall;
 
     @Column(nullable = false)

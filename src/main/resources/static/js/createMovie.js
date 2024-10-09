@@ -1,4 +1,5 @@
 import { fetchMovies } from './movieList.js';
+
 document.addEventListener("DOMContentLoaded", () => {
     const createMovieButton = document.getElementById("createMovieButton");
     const createMovieForm = document.getElementById("createMovieForm");
@@ -17,12 +18,29 @@ document.addEventListener("DOMContentLoaded", () => {
         const genre = document.getElementById("movieGenre").value;
         const duration = parseInt(document.getElementById("movieDuration").value, 10);
         const ageLimit = parseInt(document.getElementById("ageLimit").value, 10);
+        const cinemaHallSize = document.getElementById("cinemaHall").value;
 
+        // Fetch the correct CinemaHall object based on the size selected
+        let cinemaHall;
+        try {
+            const response = await fetch(`/api/cinema/halls/size/${cinemaHallSize}`);
+            if (!response.ok) {
+                throw new Error("Failed to fetch cinema hall");
+            }
+            cinemaHall = await response.json();
+        } catch (error) {
+            console.error("Error fetching cinema hall:", error);
+            createMovieMessage.innerText = "Failed to fetch cinema hall. Please try again.";
+            return;
+        }
+
+        // Build the movie data including the CinemaHall object
         const movieData = {
             title: title,
             genre: genre,
             duration: duration,
-            ageLimit: ageLimit
+            ageLimit: ageLimit,
+            cinemaHall: cinemaHall  // Send the full CinemaHall object
         };
 
         try {
@@ -31,10 +49,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify(movieData)
+                body: JSON.stringify(movieData)  // Send the movie data including CinemaHall
             });
 
-            const resultText = await response.text(); // Getting the response text (assuming it might contain info or just using it for logging/error messages)
+            const resultText = await response.text();  // Get the response text
 
             if (response.ok) {
                 createMovieMessage.innerText = "Movie successfully created: " + title;
@@ -44,7 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.getElementById("movieDuration").value = "";
                 document.getElementById("ageLimit").value = "";
                 fetchMovies();
-
             } else {
                 createMovieMessage.innerText = "Failed to create movie: " + resultText;
             }

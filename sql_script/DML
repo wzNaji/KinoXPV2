@@ -3,3 +3,348 @@
 
 INSERT INTO users (username, password, user_role)
 VALUES ('john', '$2a$10$NvaioRmhUn0tLNT2BXJcYuqrcmaufhTnfHookP.uo04Qm1MMhCJn.', 'ADMIN');
+
+
+-- Insert seats for the SMALL CinemaHall with id = 1 (20 rows, 12 seats per row)
+
+-- Row 1
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 1, 1, 1), (false, 1, 2, 1), (false, 1, 3, 1), (false, 1, 4, 1),
+(false, 1, 5, 1), (false, 1, 6, 1), (false, 1, 7, 1), (false, 1, 8, 1),
+(false, 1, 9, 1), (false, 1, 10, 1), (false, 1, 11, 1), (false, 1, 12, 1);
+
+-- Row 2
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 2, 1, 1), (false, 2, 2, 1), (false, 2, 3, 1), (false, 2, 4, 1),
+(false, 2, 5, 1), (false, 2, 6, 1), (false, 2, 7, 1), (false, 2, 8, 1),
+(false, 2, 9, 1), (false, 2, 10, 1), (false, 2, 11, 1), (false, 2, 12, 1);
+
+-- Row 3
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 3, 1, 1), (false, 3, 2, 1), (false, 3, 3, 1), (false, 3, 4, 1),
+(false, 3, 5, 1), (false, 3, 6, 1), (false, 3, 7, 1), (false, 3, 8, 1),
+(false, 3, 9, 1), (false, 3, 10, 1), (false, 3, 11, 1), (false, 3, 12, 1);
+
+-- Row 4
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 4, 1, 1), (false, 4, 2, 1), (false, 4, 3, 1), (false, 4, 4, 1),
+(false, 4, 5, 1), (false, 4, 6, 1), (false, 4, 7, 1), (false, 4, 8, 1),
+(false, 4, 9, 1), (false, 4, 10, 1), (false, 4, 11, 1), (false, 4, 12, 1);
+
+-- Row 5
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 5, 1, 1), (false, 5, 2, 1), (false, 5, 3, 1), (false, 5, 4, 1),
+(false, 5, 5, 1), (false, 5, 6, 1), (false, 5, 7, 1), (false, 5, 8, 1),
+(false, 5, 9, 1), (false, 5, 10, 1), (false, 5, 11, 1), (false, 5, 12, 1);
+
+-- Row 6
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 6, 1, 1), (false, 6, 2, 1), (false, 6, 3, 1), (false, 6, 4, 1),
+(false, 6, 5, 1), (false, 6, 6, 1), (false, 6, 7, 1), (false, 6, 8, 1),
+(false, 6, 9, 1), (false, 6, 10, 1), (false, 6, 11, 1), (false, 6, 12, 1);
+
+-- Row 7
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 7, 1, 1), (false, 7, 2, 1), (false, 7, 3, 1), (false, 7, 4, 1),
+(false, 7, 5, 1), (false, 7, 6, 1), (false, 7, 7, 1), (false, 7, 8, 1),
+(false, 7, 9, 1), (false, 7, 10, 1), (false, 7, 11, 1), (false, 7, 12, 1);
+
+-- Row 8
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 8, 1, 1), (false, 8, 2, 1), (false, 8, 3, 1), (false, 8, 4, 1),
+(false, 8, 5, 1), (false, 8, 6, 1), (false, 8, 7, 1), (false, 8, 8, 1),
+(false, 8, 9, 1), (false, 8, 10, 1), (false, 8, 11, 1), (false, 8, 12, 1);
+
+-- Row 9
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 9, 1, 1), (false, 9, 2, 1), (false, 9, 3, 1), (false, 9, 4, 1),
+(false, 9, 5, 1), (false, 9, 6, 1), (false, 9, 7, 1), (false, 9, 8, 1),
+(false, 9, 9, 1), (false, 9, 10, 1), (false, 9, 11, 1), (false, 9, 12, 1);
+
+-- Row 10
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 10, 1, 1), (false, 10, 2, 1), (false, 10, 3, 1), (false, 10, 4, 1),
+(false, 10, 5, 1), (false, 10, 6, 1), (false, 10, 7, 1), (false, 10, 8, 1),
+(false, 10, 9, 1), (false, 10, 10, 1), (false, 10, 11, 1), (false, 10, 12, 1);
+
+-- Row 11
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 11, 1, 1), (false, 11, 2, 1), (false, 11, 3, 1), (false, 11, 4, 1),
+(false, 11, 5, 1), (false, 11, 6, 1), (false, 11, 7, 1), (false, 11, 8, 1),
+(false, 11, 9, 1), (false, 11, 10, 1), (false, 11, 11, 1), (false, 11, 12, 1);
+
+-- Row 12
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 12, 1, 1), (false, 12, 2, 1), (false, 12, 3, 1), (false, 12, 4, 1),
+(false, 12, 5, 1), (false, 12, 6, 1), (false, 12, 7, 1), (false, 12, 8, 1),
+(false, 12, 9, 1), (false, 12, 10, 1), (false, 12, 11, 1), (false, 12, 12, 1);
+
+-- Row 13
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 13, 1, 1), (false, 13, 2, 1), (false, 13, 3, 1), (false, 13, 4, 1),
+(false, 13, 5, 1), (false, 13, 6, 1), (false, 13, 7, 1), (false, 13, 8, 1),
+(false, 13, 9, 1), (false, 13, 10, 1), (false, 13, 11, 1), (false, 13, 12, 1);
+
+-- Row 14
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 14, 1, 1), (false, 14, 2, 1), (false, 14, 3, 1), (false, 14, 4, 1),
+(false, 14, 5, 1), (false, 14, 6, 1), (false, 14, 7, 1), (false, 14, 8, 1),
+(false, 14, 9, 1), (false, 14, 10, 1), (false, 14, 11, 1), (false, 14, 12, 1);
+
+-- Row 15
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 15, 1, 1), (false, 15, 2, 1), (false, 15, 3, 1), (false, 15, 4, 1),
+(false, 15, 5, 1), (false, 15, 6, 1), (false, 15, 7, 1), (false, 15, 8, 1),
+(false, 15, 9, 1), (false, 15, 10, 1), (false, 15, 11, 1), (false, 15, 12, 1);
+
+-- Row 16
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 16, 1, 1), (false, 16, 2, 1), (false, 16, 3, 1), (false, 16, 4, 1),
+(false, 16, 5, 1), (false, 16, 6, 1), (false, 16, 7, 1), (false, 16, 8, 1),
+(false, 16, 9, 1), (false, 16, 10, 1), (false, 16, 11, 1), (false, 16, 12, 1);
+
+-- Row 17
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 17, 1, 1), (false, 17, 2, 1), (false, 17, 3, 1), (false, 17, 4, 1),
+(false, 17, 5, 1), (false, 17, 6, 1), (false, 17, 7, 1), (false, 17, 8, 1),
+(false, 17, 9, 1), (false, 17, 10, 1), (false, 17, 11, 1), (false, 17, 12, 1);
+
+-- Row 18
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 18, 1, 1), (false, 18, 2, 1), (false, 18, 3, 1), (false, 18, 4, 1),
+(false, 18, 5, 1), (false, 18, 6, 1), (false, 18, 7, 1), (false, 18, 8, 1),
+(false, 18, 9, 1), (false, 18, 10, 1), (false, 18, 11, 1), (false, 18, 12, 1);
+
+-- Row 19
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 19, 1, 1), (false, 19, 2, 1), (false, 19, 3, 1), (false, 19, 4, 1),
+(false, 19, 5, 1), (false, 19, 6, 1), (false, 19, 7, 1), (false, 19, 8, 1),
+(false, 19, 9, 1), (false, 19, 10, 1), (false, 19, 11, 1), (false, 19, 12, 1);
+
+-- Row 20
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 20, 1, 1), (false, 20, 2, 1), (false, 20, 3, 1), (false, 20, 4, 1),
+(false, 20, 5, 1), (false, 20, 6, 1), (false, 20, 7, 1), (false, 20, 8, 1),
+(false, 20, 9, 1), (false, 20, 10, 1), (false, 20, 11, 1), (false, 20, 12, 1);
+
+-- Insert seats for the LARGE CinemaHall with id = 2 (25 rows, 16 seats per row)
+
+-- Row 1
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 1, 1, 2), (false, 1, 2, 2), (false, 1, 3, 2), (false, 1, 4, 2),
+(false, 1, 5, 2), (false, 1, 6, 2), (false, 1, 7, 2), (false, 1, 8, 2),
+(false, 1, 9, 2), (false, 1, 10, 2), (false, 1, 11, 2), (false, 1, 12, 2),
+(false, 1, 13, 2), (false, 1, 14, 2), (false, 1, 15, 2), (false, 1, 16, 2);
+
+-- Row 2
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 2, 1, 2), (false, 2, 2, 2), (false, 2, 3, 2), (false, 2, 4, 2),
+(false, 2, 5, 2), (false, 2, 6, 2), (false, 2, 7, 2), (false, 2, 8, 2),
+(false, 2, 9, 2), (false, 2, 10, 2), (false, 2, 11, 2), (false, 2, 12, 2),
+(false, 2, 13, 2), (false, 2, 14, 2), (false, 2, 15, 2), (false, 2, 16, 2);
+
+-- Row 3
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 3, 1, 2), (false, 3, 2, 2), (false, 3, 3, 2), (false, 3, 4, 2),
+(false, 3, 5, 2), (false, 3, 6, 2), (false, 3, 7, 2), (false, 3, 8, 2),
+(false, 3, 9, 2), (false, 3, 10, 2), (false, 3, 11, 2), (false, 3, 12, 2),
+(false, 3, 13, 2), (false, 3, 14, 2), (false, 3, 15, 2), (false, 3, 16, 2);
+
+-- Row 4
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 4, 1, 2), (false, 4, 2, 2), (false, 4, 3, 2), (false, 4, 4, 2),
+(false, 4, 5, 2), (false, 4, 6, 2), (false, 4, 7, 2), (false, 4, 8, 2),
+(false, 4, 9, 2), (false, 4, 10, 2), (false, 4, 11, 2), (false, 4, 12, 2),
+(false, 4, 13, 2), (false, 4, 14, 2), (false, 4, 15, 2), (false, 4, 16, 2);
+
+-- Row 5
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 5, 1, 2), (false, 5, 2, 2), (false, 5, 3, 2), (false, 5, 4, 2),
+(false, 5, 5, 2), (false, 5, 6, 2), (false, 5, 7, 2), (false, 5, 8, 2),
+(false, 5, 9, 2), (false, 5, 10, 2), (false, 5, 11, 2), (false, 5, 12, 2),
+(false, 5, 13, 2), (false, 5, 14, 2), (false, 5, 15, 2), (false, 5, 16, 2);
+
+-- Row 6
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 6, 1, 2), (false, 6, 2, 2), (false, 6, 3, 2), (false, 6, 4, 2),
+(false, 6, 5, 2), (false, 6, 6, 2), (false, 6, 7, 2), (false, 6, 8, 2),
+(false, 6, 9, 2), (false, 6, 10, 2), (false, 6, 11, 2), (false, 6, 12, 2),
+(false, 6, 13, 2), (false, 6, 14, 2), (false, 6, 15, 2), (false, 6, 16, 2);
+
+-- Row 7
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 7, 1, 2), (false, 7, 2, 2), (false, 7, 3, 2), (false, 7, 4, 2),
+(false, 7, 5, 2), (false, 7, 6, 2), (false, 7, 7, 2), (false, 7, 8, 2),
+(false, 7, 9, 2), (false, 7, 10, 2), (false, 7, 11, 2), (false, 7, 12, 2),
+(false, 7, 13, 2), (false, 7, 14, 2), (false, 7, 15, 2), (false, 7, 16, 2);
+
+-- Row 8
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 8, 1, 2), (false, 8, 2, 2), (false, 8, 3, 2), (false, 8, 4, 2),
+(false, 8, 5, 2), (false, 8, 6, 2), (false, 8, 7, 2), (false, 8, 8, 2),
+(false, 8, 9, 2), (false, 8, 10, 2), (false, 8, 11, 2), (false, 8, 12, 2),
+(false, 8, 13, 2), (false, 8, 14, 2), (false, 8, 15, 2), (false, 8, 16, 2);
+
+-- Row 9
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 9, 1, 2), (false, 9, 2, 2), (false, 9, 3, 2), (false, 9, 4, 2),
+(false, 9, 5, 2), (false, 9, 6, 2), (false, 9, 7, 2), (false, 9, 8, 2),
+(false, 9, 9, 2), (false, 9, 10, 2), (false, 9, 11, 2), (false, 9, 12, 2),
+(false, 9, 13, 2), (false, 9, 14, 2), (false, 9, 15, 2), (false, 9, 16, 2);
+
+-- Row 10
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 10, 1, 2), (false, 10, 2, 2), (false, 10, 3, 2), (false, 10, 4, 2),
+(false, 10, 5, 2), (false, 10, 6, 2), (false, 10, 7, 2), (false, 10, 8, 2),
+(false, 10, 9, 2), (false, 10, 10, 2), (false, 10, 11, 2), (false, 10, 12, 2),
+(false, 10, 13, 2), (false, 10, 14, 2), (false, 10, 15, 2), (false, 10, 16, 2);
+
+-- Row 11
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 11, 1, 2), (false, 11, 2, 2), (false, 11, 3, 2), (false, 11, 4, 2),
+(false, 11, 5, 2), (false, 11, 6, 2), (false, 11, 7, 2), (false, 11, 8, 2),
+(false, 11, 9, 2), (false, 11, 10, 2), (false, 11, 11, 2), (false, 11, 12, 2),
+(false, 11, 13, 2), (false, 11, 14, 2), (false, 11, 15, 2), (false, 11, 16, 2);
+
+-- Row 12
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 12, 1, 2), (false, 12, 2, 2), (false, 12, 3, 2), (false, 12, 4, 2),
+(false, 12, 5, 2), (false, 12, 6, 2), (false, 12, 7, 2), (false, 12, 8, 2),
+(false, 12, 9, 2), (false, 12, 10, 2), (false, 12, 11, 2), (false, 12, 12, 2),
+(false, 12, 13, 2), (false, 12, 14, 2), (false, 12, 15, 2), (false, 12, 16, 2);
+
+-- Row 13
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 13, 1, 2), (false, 13, 2, 2), (false, 13, 3, 2), (false, 13, 4, 2),
+(false, 13, 5, 2), (false, 13, 6, 2), (false, 13, 7, 2), (false, 13, 8, 2),
+(false, 13, 9, 2), (false, 13, 10, 2), (false, 13, 11, 2), (false, 13, 12, 2),
+(false, 13, 13, 2), (false, 13, 14, 2), (false, 13, 15, 2), (false, 13, 16, 2);
+
+-- Row 14
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 14, 1, 2), (false, 14, 2, 2), (false, 14, 3, 2), (false, 14, 4, 2),
+(false, 14, 5, 2), (false, 14, 6, 2), (false, 14, 7, 2), (false, 14, 8, 2),
+(false, 14, 9, 2), (false, 14, 10, 2), (false, 14, 11, 2), (false, 14, 12, 2),
+(false, 14, 13, 2), (false, 14, 14, 2), (false, 14, 15, 2), (false, 14, 16, 2);
+
+-- Row 15
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 15, 1, 2), (false, 15, 2, 2), (false, 15, 3, 2), (false, 15, 4, 2),
+(false, 15, 5, 2), (false, 15, 6, 2), (false, 15, 7, 2), (false, 15, 8, 2),
+(false, 15, 9, 2), (false, 15, 10, 2), (false, 15, 11, 2), (false, 15, 12, 2),
+(false, 15, 13, 2), (false, 15, 14, 2), (false, 15, 15, 2), (false, 15, 16, 2);
+
+-- Row 16
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 16, 1, 2), (false, 16, 2, 2), (false, 16, 3, 2), (false, 16, 4, 2),
+(false, 16, 5, 2), (false, 16, 6, 2), (false, 16, 7, 2), (false, 16, 8, 2),
+(false, 16, 9, 2), (false, 16, 10, 2), (false, 16, 11, 2), (false, 16, 12, 2),
+(false, 16, 13, 2), (false, 16, 14, 2), (false, 16, 15, 2), (false, 16, 16, 2);
+
+-- Row 17
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 17, 1, 2), (false, 17, 2, 2), (false, 17, 3, 2), (false, 17, 4, 2),
+(false, 17, 5, 2), (false, 17, 6, 2), (false, 17, 7, 2), (false, 17, 8, 2),
+(false, 17, 9, 2), (false, 17, 10, 2), (false, 17, 11, 2), (false, 17, 12, 2),
+(false, 17, 13, 2), (false, 17, 14, 2), (false, 17, 15, 2), (false, 17, 16, 2);
+
+-- Row 18
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 18, 1, 2), (false, 18, 2, 2), (false, 18, 3, 2), (false, 18, 4, 2),
+(false, 18, 5, 2), (false, 18, 6, 2), (false, 18, 7, 2), (false, 18, 8, 2),
+(false, 18, 9, 2), (false, 18, 10, 2), (false, 18, 11, 2), (false, 18, 12, 2),
+(false, 18, 13, 2), (false, 18, 14, 2), (false, 18, 15, 2), (false, 18, 16, 2);
+
+-- Row 19
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 19, 1, 2), (false, 19, 2, 2), (false, 19, 3, 2), (false, 19, 4, 2),
+(false, 19, 5, 2), (false, 19, 6, 2), (false, 19, 7, 2), (false, 19, 8, 2),
+(false, 19, 9, 2), (false, 19, 10, 2), (false, 19, 11, 2), (false, 19, 12, 2),
+(false, 19, 13, 2), (false, 19, 14, 2), (false, 19, 15, 2), (false, 19, 16, 2);
+
+-- Row 20
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 20, 1, 2), (false, 20, 2, 2), (false, 20, 3, 2), (false, 20, 4, 2),
+(false, 20, 5, 2), (false, 20, 6, 2), (false, 20, 7, 2), (false, 20, 8, 2),
+(false, 20, 9, 2), (false, 20, 10, 2), (false, 20, 11, 2), (false, 20, 12, 2),
+(false, 20, 13, 2), (false, 20, 14, 2), (false, 20, 15, 2), (false, 20, 16, 2);
+
+-- Row 21
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 21, 1, 2), (false, 21, 2, 2), (false, 21, 3, 2), (false, 21, 4, 2),
+(false, 21, 5, 2), (false, 21, 6, 2), (false, 21, 7, 2), (false, 21, 8, 2),
+(false, 21, 9, 2), (false, 21, 10, 2), (false, 21, 11, 2), (false, 21, 12, 2),
+(false, 21, 13, 2), (false, 21, 14, 2), (false, 21, 15, 2), (false, 21, 16, 2);
+
+-- Row 22
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 22, 1, 2), (false, 22, 2, 2), (false, 22, 3, 2), (false, 22, 4, 2),
+(false, 22, 5, 2), (false, 22, 6, 2), (false, 22, 7, 2), (false, 22, 8, 2),
+(false, 22, 9, 2), (false, 22, 10, 2), (false, 22, 11, 2), (false, 22, 12, 2),
+(false, 22, 13, 2), (false, 22, 14, 2), (false, 22, 15, 2), (false, 22, 16, 2);
+
+-- Row 23
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 23, 1, 2), (false, 23, 2, 2), (false, 23, 3, 2), (false, 23, 4, 2),
+(false, 23, 5, 2), (false, 23, 6, 2), (false, 23, 7, 2), (false, 23, 8, 2),
+(false, 23, 9, 2), (false, 23, 10, 2), (false, 23, 11, 2), (false, 23, 12, 2),
+(false, 23, 13, 2), (false, 23, 14, 2), (false, 23, 15, 2), (false, 23, 16, 2);
+
+-- Row 24
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 24, 1, 2), (false, 24, 2, 2), (false, 24, 3, 2), (false, 24, 4, 2),
+(false, 24, 5, 2), (false, 24, 6, 2), (false, 24, 7, 2), (false, 24, 8, 2),
+(false, 24, 9, 2), (false, 24, 10, 2), (false, 24, 11, 2), (false, 24, 12, 2),
+(false, 24, 13, 2), (false, 24, 14, 2), (false, 24, 15, 2), (false, 24, 16, 2);
+
+-- Row 25
+INSERT INTO Seat (is_reserved, row_num, seat_number, cinema_hall_id)
+VALUES
+(false, 25, 1, 2), (false, 25, 2, 2), (false, 25, 3, 2), (false, 25, 4, 2),
+(false, 25, 5, 2), (false, 25, 6, 2), (false, 25, 7, 2), (false, 25, 8, 2),
+(false, 25, 9, 2), (false, 25, 10, 2), (false, 25, 11, 2), (false, 25, 12, 2),
+(false, 25, 13, 2), (false, 25, 14, 2), (false, 25, 15, 2), (false, 25, 16, 2);

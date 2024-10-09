@@ -63,12 +63,22 @@
   <form id="createMovieFormElement">
     <label for="movieTitle">Title:</label>
     <input type="text" id="movieTitle" required>
+
     <label for="movieGenre">Genre:</label>
     <input type="text" id="movieGenre" required>
+
     <label for="movieDuration">Duration (in minutes):</label>
     <input type="number" id="movieDuration" required>
+
     <label for="ageLimit">Age Limit</label>
     <input type="number" id="ageLimit" required>
+
+    <select id="cinemaHall" required>
+      <option value="" disabled selected>Select a cinema hall size</option>
+      <option value="large">Large</option>
+      <option value="small">Small</option>
+    </select>
+
     <button type="submit">Create</button>
   </form>
   <div id="createMovieMessage"></div> <!-- Placeholder for success or error messages -->

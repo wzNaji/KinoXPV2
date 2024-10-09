@@ -1,5 +1,6 @@
 package com.wzn.kinoxpv2.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -33,6 +34,7 @@ public class Movie {
 
     @ManyToOne
     @JoinColumn(name = "cinema_hall_id") // foreign key column.
+    @JsonBackReference  // Prevents back-reference serialization to avoid infinite recursion
     private CinemaHall cinemaHall;
 
     @OneToMany(mappedBy = "movie", fetch = FetchType.LAZY, cascade = CascadeType.ALL)

@@ -23,26 +23,43 @@ export function fetchMovies() {
         });
 }
 
-// Display movies in a specified container
 function displayMovies(movies) {
     const container = document.getElementById("movies-container");
     container.innerHTML = "";
+
     if (movies.length === 0) {
         container.innerHTML = "<p>No movies available.</p>";
     } else {
-        movies.forEach(movie => {
+        movies.forEach((movie) => {
             let movieElement = `
                 <div class="movie">
                     <h2>${movie.title}</h2>
                     <p>Genre: ${movie.genre}</p>
                     <p>Duration: ${movie.duration} minutes</p>
                     <p>Age Limit: ${movie.ageLimit}+</p>
+                    <button class="timetableButton" data-movie-id="${movie.id}">Go To Timetable</button> 
                 </div>
             `;
             container.innerHTML += movieElement;
+
+            // Attach event listeners to all buttons after they are added to the DOM
+            const timetableButtons = document.getElementsByClassName("timetableButton");
+
+
+            Array.from(timetableButtons).forEach(button => {
+                button.addEventListener("click", function() {
+                    const movieId = this.getAttribute("data-movie-id"); // Get the data-movie-id value
+
+                    // Redirect to the new page and pass the movieId as a query parameter
+                    window.location.href = `timetableAndReservation.html?movieId=${movieId}`;
+                });
+            })
+
+
         });
     }
 }
+
 
 // Populate genre dropdown from fetched movies
 function populateGenreDropdown(movies) {
