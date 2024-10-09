@@ -1,7 +1,6 @@
 package com.wzn.kinoxpv2.controller;
 
 import com.wzn.kinoxpv2.entity.CinemaHall;
-import com.wzn.kinoxpv2.entity.Seat;
 import com.wzn.kinoxpv2.entity.TheaterType;
 import com.wzn.kinoxpv2.service.CinemaHallService;
 import org.springframework.http.ResponseEntity;
@@ -10,7 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/cinema/halls")

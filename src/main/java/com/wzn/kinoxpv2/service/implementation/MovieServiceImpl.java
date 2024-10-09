@@ -5,7 +5,6 @@ import com.wzn.kinoxpv2.repository.MovieRepository;
 import com.wzn.kinoxpv2.service.MovieService;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;

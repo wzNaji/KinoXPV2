@@ -30,7 +30,7 @@ function displayMovies(movies) {
     if (movies.length === 0) {
         container.innerHTML = "<p>No movies available.</p>";
     } else {
-        movies.forEach((movie, index) => {
+        movies.forEach((movie) => {
             let movieElement = `
                 <div class="movie">
                     <h2>${movie.title}</h2>
@@ -60,10 +60,6 @@ function displayMovies(movies) {
     }
 }
 
-// handle the "View Details" button click
-function viewMovieDetails(movie) {
-    alert(`Movie Title: ${movie.title}\nGenre: ${movie.genre}\nDuration: ${movie.duration} minutes\nAge Limit: ${movie.ageLimit}+`);
-}
 
 // Populate genre dropdown from fetched movies
 function populateGenreDropdown(movies) {

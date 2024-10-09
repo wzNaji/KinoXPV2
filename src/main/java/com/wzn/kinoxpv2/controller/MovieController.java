@@ -1,11 +1,8 @@
 package com.wzn.kinoxpv2.controller;
 
-import com.wzn.kinoxpv2.config.AppConfig;
 import com.wzn.kinoxpv2.entity.Movie;
-import com.wzn.kinoxpv2.entity.User;
 import com.wzn.kinoxpv2.service.MovieService;
 import jakarta.persistence.EntityNotFoundException;
-import jakarta.servlet.http.HttpSession;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
