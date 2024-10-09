@@ -64,4 +64,18 @@ public class MovieController {
         }
     }
 
+    @GetMapping("/{movieId}")
+    public ResponseEntity<Movie> getMovieById(@PathVariable Long movieId) {
+        try {
+            Movie movie = movieService.findMovieById(movieId);
+            return ResponseEntity.ok(movie); // Return 200 OK with the movie
+        } catch (IllegalArgumentException ex) {
+            // Handle case where the movie is not found
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        } catch (Exception ex) {
+            // Handle generic exceptions
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
+
 }

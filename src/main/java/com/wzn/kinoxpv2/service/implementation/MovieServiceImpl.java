@@ -5,6 +5,9 @@ import com.wzn.kinoxpv2.repository.MovieRepository;
 import com.wzn.kinoxpv2.service.MovieService;
 
 import java.util.List;
+import java.util.Optional;
+
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -48,4 +51,20 @@ public class MovieServiceImpl implements MovieService {
         }
         return allMovies;
     }
+
+    @Override
+    public Movie findMovieById(Long movieId) {
+        try {
+            return movieRepository.findById(movieId)
+                    .orElseThrow(() -> new IllegalArgumentException("Movie with ID " + movieId + " not found"));
+        } catch (IllegalArgumentException ex) {
+            System.err.println(ex.getMessage()); // Log the error
+            throw ex;
+        } catch (DataAccessException ex) {
+            System.err.println("Database error: " + ex.getMessage());
+            throw ex;
+        }
+    }
+
+
 }
