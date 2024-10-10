@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -23,6 +25,12 @@ public class Seat {
 
     @Column(nullable = false)
     private int seatNumber;
+/*
+    @ManyToOne
+    @JoinColumn(name = "time_table_id", nullable = false)
+    private TimeTable timeTable;
+
+ */
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cinema_hall_id", nullable = false)
