@@ -8,4 +8,5 @@ public interface CinemaHallRepository extends JpaRepository<CinemaHall, Long> {
 
     CinemaHall findCinemaHallByTheaterType(TheaterType theaterType);
 
+
 }

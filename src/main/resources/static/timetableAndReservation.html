@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Timetable and reservation</title>
+    <link rel="stylesheet" href="/css/reservation.css">
 </head>
 <body>
     <div id="movie-details-container">
@@ -12,6 +13,21 @@
     <div id="timetable-container">
         <!-- Timetable details will be displayed here -->
     </div>
+
+    <h3>Select Your Seats</h3>
+
+    <!-- Seat chart container for better layout control -->
+    <div id="seating-chart-container">
+        <div id="seating-chart"></div>
+    </div>
+
+    <!-- Reserve Button -->
+    <div id="reserve-container">
+        <button id="reserve-seats" disabled>Reserve Selected Seats</button>
+    </div>
+
+    <!-- Reservation Status Message -->
+    <div id="reservation-status"></div>
 
 <script type="module" src="/js/timetableAndReservation.js"></script>
 </body>

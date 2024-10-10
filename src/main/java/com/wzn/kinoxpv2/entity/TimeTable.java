@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Data
@@ -26,6 +27,11 @@ public class TimeTable {
     @JoinColumn(name = "cinema_hall_id", nullable = false)
     @JsonBackReference
     private CinemaHall cinemaHall;
+/*
+    @OneToMany(mappedBy = "timeTable", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Seat> seats;
+
+ */
 
     @Column(nullable = false)
     private LocalDateTime startTime;

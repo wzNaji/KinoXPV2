@@ -1,3 +1,5 @@
+let cinemaHallId;
+
 // Function to get query parameters from the URL
 function getQueryParam(param) {
     const urlParams = new URLSearchParams(window.location.search);
@@ -12,7 +14,7 @@ console.log('Movie ID:', movieId);
 async function findMovieById(movieId) {
     try {
         const response = await fetch(`/api/movies/${movieId}`, {
-            method: 'GET',  // Make a GET request to your API
+            method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -22,9 +24,10 @@ async function findMovieById(movieId) {
             throw new Error(`Error fetching movie: ${response.statusText}`);
         }
 
-        const movie = await response.json();  // Parse the JSON response
-        displayMovieDetails(movie);  // Call a function to display the movie details
-        await fetchTimetable(movieId);  // Fetch and display the movie's timetable
+        const movie = await response.json();
+        displayMovieDetails(movie);
+        await fetchTimetable(movieId);
+        await getCinemaHallIdByMovieId(movieId);
     } catch (error) {
         console.error("Error fetching movie details:", error);
         const movieContainer = document.getElementById('movie-details-container');
@@ -46,7 +49,7 @@ async function fetchTimetable(movieId) {
             throw new Error(`Error fetching timetable: ${response.statusText}`);
         }
 
-        const timetable = await response.json();  // Parse the timetable details
+        const timetable = await response.json();
         displayTimetable(timetable);
     } catch (error) {
         console.error("Error fetching timetable:", error);
@@ -77,6 +80,76 @@ function displayTimetable(timetable) {
     `;
 }
 
+// Fetch the cinema hall ID by movie ID
+async function getCinemaHallIdByMovieId(movieId) {
+    const url = `/api/cinema/halls/${movieId}`;
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error('Failed to fetch cinema hall ID. Movie may not exist.');
+        }
+        cinemaHallId = await response.json();
+        console.log('Cinema Hall ID:', cinemaHallId);
+        fetchSeats();  // Fetch seats after cinema hall ID is confirmed
+    } catch (error) {
+        console.error('Error:', error.message);
+    }
+}
+
+// Fetch and display seats
+function fetchSeats() {
+    fetch(`/api/seats/${cinemaHallId}/seats`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to fetch seats');
+            }
+            return response.json();
+        })
+        .then(seats => {
+            displaySeats(seats);
+        })
+        .catch(error => {
+            console.error('Error fetching seats:', error);
+            document.getElementById('seating-chart').innerHTML = `<p>Error fetching seats: ${error.message}</p>`;
+        });
+}
+
+// Display seats on the page
+function displaySeats(seats) {
+    const seatingChart = document.getElementById('seating-chart');
+    seatingChart.innerHTML = '';
+
+    seats.forEach(seat => {
+        const seatElement = document.createElement('div');
+        seatElement.classList.add('seat');
+        seatElement.dataset.seatId = seat.id;
+
+        if (seat.reserved) {
+            seatElement.classList.add('reserved');
+        } else {
+            seatElement.addEventListener('click', () => toggleSeatSelection(seatElement));
+        }
+
+        seatingChart.appendChild(seatElement);
+    });
+    updateReserveButton();
+}
+
+// Toggle seat selection
+function toggleSeatSelection(seatElement) {
+    if (!seatElement.classList.contains('reserved')) {
+        seatElement.classList.toggle('selected');
+        updateReserveButton();
+    }
+}
+
+// Update the reserve button based on selection
+function updateReserveButton() {
+    const selectedSeats = document.querySelectorAll('.seat.selected').length;
+    const reserveButton = document.getElementById('reserve-seats');
+    reserveButton.disabled = selectedSeats === 0;
+}
+
 // Call the function to fetch movie details when the page loads
 document.addEventListener("DOMContentLoaded", async () => {
     if (movieId) {
@@ -85,4 +158,32 @@ document.addEventListener("DOMContentLoaded", async () => {
         const movieContainer = document.getElementById('movie-details-container');
         movieContainer.innerHTML = `<p>Invalid movie ID. Please select a valid movie.</p>`;
     }
+});
+
+// Add the event listener for the reservation button
+document.getElementById('reserve-seats').addEventListener('click', () => {
+    const selectedSeatElements = document.querySelectorAll('.seat.selected');
+    const seatIds = Array.from(selectedSeatElements, seat => seat.dataset.seatId);
+
+    fetch(`/api/seats/${cinemaHallId}/reserve`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(seatIds)
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Reservation failed');
+            }
+            return response.text();
+        })
+        .then(message => {
+            document.getElementById('reservation-status').innerText = message;
+            fetchSeats();  // Refresh the seats to show any new reservations
+        })
+        .catch(error => {
+            document.getElementById('reservation-status').innerText = error.message;
+            console.error('Error reserving seats:', error);
+        });
 });
