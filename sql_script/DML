@@ -4,6 +4,11 @@
 INSERT INTO users (username, password, user_role)
 VALUES ('john', '$2a$10$NvaioRmhUn0tLNT2BXJcYuqrcmaufhTnfHookP.uo04Qm1MMhCJn.', 'ADMIN');
 
+-- Insert cinema halls:
+
+INSERT INTO cinema_hall (id, cinema_hall_rows, theater_type)
+VALUES (1, 20, 'SMALL'), -- Small cinema hall with 20 rows
+       (2, 25, 'LARGE'); -- Large cinema hall with 25 rows;
 
 -- Movies
 -- Inserting four movies
@@ -18,7 +23,7 @@ VALUES
 -- time tables
 -- Inserting four time tables with cinema hall id and movie id references
 
-INSERT INTO TimeTable (id, start_time, cinema_hall_id, movie_id)
+INSERT INTO time_table (id, start_time, cinema_hall_id, movie_id)
 VALUES
 (1, '2024-10-10 14:00:00', 1, 1),  -- Movie 1 in Cinema Hall 1
 (2, '2024-10-10 17:00:00', 1, 2),  -- Movie 2 in Cinema Hall 1
